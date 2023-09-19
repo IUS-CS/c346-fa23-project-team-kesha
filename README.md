@@ -16,7 +16,7 @@ Now, to install express(if you haven't done so already), run the following comma
 
 Features will be tested on your local server, so to run the webserver, run the following command from the main folder:
 
-    $ node src/.vscode/server.js
+    $ node src/js/server.js
 
 This will host a website on your localhost with your SSL key and run the scripts in /src/js. Changes made to the web application visually will be made in the html and css folders.
 
