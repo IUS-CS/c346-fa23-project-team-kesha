@@ -1,5 +1,5 @@
 # Organization
 
-- Nathan Massie -  
-- Noah Trejo - 
-- Ethan Bilyk - 
+- Nathan Massie - Developer
+- Noah Trejo - Project Manager
+- Ethan Bilyk - Developer
