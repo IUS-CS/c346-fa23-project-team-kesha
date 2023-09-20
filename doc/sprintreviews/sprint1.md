@@ -19,13 +19,13 @@ This sprint, we completed:
 
 Here are screenshots of what we did:
 
-![Thing](..\Images\Shot1?raw=true)
-![Thing](..\Images\Shot2?raw=true)
-![Thing](..\Images\Shot3?raw=true)
-![Thing](..\Images\Shot4?raw=true)
-![Thing](..\Images\Shot5?raw=true)
-![Thing](..\Images\Shot6?raw=true)
-![Thing](..\Images\Shot7?raw=true)
+![Thing](../Images/Shot1?raw=true)
+![Thing](../Images/Shot2?raw=true)
+![Thing](../Images/Shot3?raw=true)
+![Thing](../Images/Shot4?raw=true)
+![Thing](../Images/Shot5?raw=true)
+![Thing](../Images/Shot6?raw=true)
+![Thing](../Images/Shot7?raw=true)
 
 ## Retro
 
