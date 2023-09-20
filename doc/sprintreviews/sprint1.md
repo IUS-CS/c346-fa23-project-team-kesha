@@ -4,40 +4,48 @@ Date: 2020-09-21
 
 Members present:
 
-* Chris Sexton
-* Bones Sexton
-* Parsnip Sexton
-* Schnitzel Sexton
+* Nathan Massie
+* Ethan Bilyk
+* Noah Trejo
+
   
 ## Demo
 
 This sprint, we completed:
 
-* X
-* Y
-* Z
+* Created a meta app
+* Setup all of the projects github documentation
+* Setup website architecture 
 
 Here are screenshots of what we did:
 
-![Thing](/docs/images/screenshot1.png?raw=true)
+![Thing](doc\Images\Shot1?raw=true)
+![Thing](doc\Images\Shot2?raw=true)
+![Thing](doc\Images\Shot3?raw=true)
+![Thing](doc\Images\Shot4?raw=true)
+![Thing](doc\Images\Shot5?raw=true)
+![Thing](doc\Images\Shot6?raw=true)
+![Thing](doc\Images\Shot7?raw=true)
 
 ## Retro
+
+ 
 
 [What is a Sprint Retrospective](https://www.scrum.org/resources/what-is-a-sprint-retrospective)
 
 ### Good
 
-* Sexton is amazing
-* I love working on X
+* Discord group chat for communicating  
 
 ### Bad
 
-* This thing went poorly because X
-* So and so is mean
+* Sprint planning was poor 
+* TODO list was not kept up to date
 
 ### Actionable Commitments
 
-* As a team, we will...
+* Assign story points to members to improve planning
+* Keep TODO list current
 
 ## Planning
 
@@ -45,5 +53,5 @@ Here are screenshots of what we did:
 
 Points | Story
 -------|--------
-5      | As a user, I want...
-8      | As an administrator, I want... so I can ...
+13     | As a user, I want to be able to link my instagram account
+       
