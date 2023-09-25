@@ -15,13 +15,13 @@ var app = express();
 app.use(express.static('src'));
 
 // Meta (Facebook) App credentials
-var clientId = 'ENTER CLEINT ID HERE';
-var clientSecret = 'ENTER SECRET HERE';
-var redirectUri = 'http://localhost:8000/auth/facebook/callback'; // need to replace once we get a url
+var clientId = '1013165189995871';
+var clientSecret = 'f5c3498ab5cf5d90ec7263b3dc8a469c';
+var redirectUri = 'https://localhost:8000/auth/facebook/callback'; // need to replace once we get a url
 
 // Endpoint to initiate OAuth
 app.get('/auth/facebook', function (req, res) {
-  var authUrl = 'https://www.facebook.com/v17.0/dialog/oauth?' +
+  var authUrl = 'https://www.facebook.com/v18.0/dialog/oauth?' +
     querystring.stringify({
       client_id: clientId,
       redirect_uri: redirectUri,
@@ -31,12 +31,15 @@ app.get('/auth/facebook', function (req, res) {
   res.redirect(authUrl);
 });
 
+var userData = '';
+
 // Callback route after the user authorizes the app
 app.get('/auth/facebook/callback', function (req, res) {
   var code = req.query.code;
+  console.log('Received authorization code:', code);
 
   // Exchange the authorization code for an access token
-  var tokenUrl = 'https://graph.facebook.com/v17.0/oauth/access_token?' +
+  var tokenUrl = 'https://graph.facebook.com/v18.0/oauth/access_token?' +
     querystring.stringify({
       client_id: clientId,
       client_secret: clientSecret,
@@ -53,12 +56,13 @@ app.get('/auth/facebook/callback', function (req, res) {
 
     tokenResponse.on('end', function () {
       var tokenData = JSON.parse(body);
+      console.log('Token data:', tokenData);
 
       // Use the access token to make API requests on behalf of the user
       var accessToken = tokenData.access_token;
 
       // API request to fetch user data
-      https.get('https://graph.facebook.com/v17.0/me?fields=id,email', {
+      https.get('https://graph.facebook.com/v18.0/me?fields=id,email', {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -70,7 +74,7 @@ app.get('/auth/facebook/callback', function (req, res) {
         });
 
         apiResponse.on('end', function () {
-          var userData = JSON.parse(apiData);
+          userData = JSON.parse(apiData);
 
           // Handle user data here
           console.log('User data:', userData);
