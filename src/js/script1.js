@@ -1,7 +1,3 @@
-function changeColor(newColor) {
-  const elem = document.getElementById("status");
-  elem.style.color = newColor;
-}
 
 function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
   console.log('statusChangeCallback');
