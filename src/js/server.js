@@ -20,8 +20,8 @@ app.get('/', (req, res) => {
 });
 
 // Meta (Facebook) App credentials
-var clientId = '1013165189995871'; // need to replace once we get a client id
-var clientSecret = 'f5c3498ab5cf5d90ec7263b3dc8a469c';
+var clientId = ''; // need to replace once we get a client id
+var clientSecret = '';
 var redirectUri = 'https://localhost:8000/auth/facebook/callback'; // need to replace once we get a url
 
 // Endpoint to initiate OAuth
