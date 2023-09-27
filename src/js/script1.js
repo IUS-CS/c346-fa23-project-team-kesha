@@ -1,3 +1,30 @@
+window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '324016296801665',
+    cookie     : true,                     // Enable cookies to allow the server to access the session.
+    xfbml      : true,                     // Parse social plugins on this webpage.
+    version    : 'v18.0'           // Use this Graph API version for this call.
+  });
+};
+
+function loginToFacebook() {
+  FB.login(function(response) {
+    if (response.authResponse) {
+      console.log('Welcome!  Fetching your information.... ');
+    } else {
+      console.log('User cancelled login or did not fully authorize.');
+    }
+  }, {
+    scope: 'email, user_likes, publish_actions', 
+    return_scopes: true
+  });
+};
+
+function checkLoginState() {               // Called when a person is finished with the Login Button.
+  FB.getLoginStatus(function(response) {   // See the onlogin handler
+    statusChangeCallback(response);
+  });
+}
 
 function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
   console.log('statusChangeCallback');
@@ -11,38 +38,6 @@ function statusChangeCallback(response) {  // Called with the results from FB.ge
 }
 
 
-function checkLoginState() {               // Called when a person is finished with the Login Button.
-  FB.getLoginStatus(function(response) {   // See the onlogin handler
-    statusChangeCallback(response);
-  });
-}
-
-
-window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '324016296801665',
-    cookie     : true,                     // Enable cookies to allow the server to access the session.
-    xfbml      : true,                     // Parse social plugins on this webpage.
-    version    : 'v18.0'           // Use this Graph API version for this call.
-  });
-
-  FB.login(function(response) {
-    if (response.authResponse) {
-      console.log('Welcome!  Fetching your information.... ');
-      checkLoginState;
-    } else {
-      console.log('User cancelled login or did not fully authorize.');
-    }
-  }, {
-    scope: 'email, user_likes, publish_actions', 
-    return_scopes: true
-  });
-
-
-  FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
-    statusChangeCallback(response);        // Returns the login status.
-  });
-};
 
 function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
   console.log('Welcome!  Fetching your information.... ');
@@ -52,3 +47,9 @@ function testAPI() {                      // Testing Graph API after login.  See
       'Thanks for logging in, ' + response.name + '!';
   });
 }
+
+function logout() {
+  FB.logout(function(response) {
+    console.log(response.name + ' is logged out')
+  });
+};
