@@ -31,4 +31,4 @@ This document will describe the Creational, Behavioral, and Structual design pat
 The patterns in Possible Uses are being considered for implementation
 
 ## UML Diagram of Web Application
-![Thing](/Images/UMLDiagram.png)
+![Image](./Images/UMLDiagram.png)
