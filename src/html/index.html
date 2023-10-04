@@ -17,6 +17,13 @@
 
 </style>
 <body>
+    <h1>Facebook Login Page</h1>
+    <p id="status">No Login Detected</p>
+    <button class="button" style="vertical-align:middle" onclick="checkLoginState()"><span>Check Login</span></button>
+    
+    <button class="button" style="vertical-align:middle" onclick="logout()"><span>Logout</span></button>
+
+    <button class="button" style="vertical-align:middle" onclick="getCurrentUserInfo()"><span>UserInfo</span></button>
     <div 
         class="fb-login-button" 
         data-width="100px" 
@@ -26,10 +33,6 @@
         data-auto-logout-link="true" 
         data-use-continue-as="true">
         </div>
-    <div id="fb-root"></div>
-    Facebook Login Page
-    <button onclick="checkLoginState()">Check Login</button>
-    <p id="status">Sample Dialog for status</p>
-    <button onclick="logout()">Logout</button>
+
 </body>
 </html>
