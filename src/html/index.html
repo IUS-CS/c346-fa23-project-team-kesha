@@ -11,17 +11,29 @@
 </head>
 <style>
     body {
-    background-color: red;
-}
-h1 {
-    color: blue;
-    font-family: verdana;
-    font-size: 100%;
-}
+        background-color: grey;
+        text-align: center; /* Center the content in the body */
+    }
+    h1 {
+        color: blue;
+        font-family: verdana;
+        font-size: 60px; /* Increase the font size for the header */
+    }
+    button {
+        display: block; /* Make the button a block element for centering */
+        margin: 0 auto; /* Center the button horizontally */
+        margin-top: 30px; /* Add some top margin for spacing */
+    }
 </style>
 <body>
-    Instagram
-    <h1>Heading 1</h1>
-    <p>Paragraph</p>
+    <h1>Meta Scraper</h1>
+    <button id="facebookLoginButton">Login with Facebook</button>
+    <script>
+        // JavaScript code to handle the button click and redirect to Facebook login
+        document.getElementById('facebookLoginButton').addEventListener('click', function() {
+            // Redirect to the Facebook login page
+            window.location.href = 'https://localhost:8000/auth/facebook';
+        });
+    </script>
 </body>
 </html>
