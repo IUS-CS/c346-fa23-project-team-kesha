@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
     <script src="../js/script1.js"></script> 
+    <script src="../js/redirectScript.js"></script> 
     <script 
         async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js">
         </script>
@@ -19,11 +20,12 @@
 <body>
     <h1>Facebook Login Page</h1>
     <p id="status">No Login Detected</p>
-    <button class="button" style="vertical-align:middle" onclick="checkLoginState()"><span>Check Login</span></button>
+    <button class="button" style="vertical-align:middle" onclick="checkLoginState()">Check Login</button>
     
-    <button class="button" style="vertical-align:middle" onclick="logout()"><span>Logout</span></button>
+    <button class="button" style="vertical-align:middle" onclick="logout()">Logout</button>
 
-    <button class="button" style="vertical-align:middle" onclick="getCurrentUserInfo()"><span>UserInfo</span></button>
+    <button class="button" style="vertical-align:middle" onclick="checkLoginStateInfo()">UserInfo</button>
+    <a href="./html/loginpage.html"><button class="button" style="vertical-align:middle">Go up</button></a>
     <div 
         class="fb-login-button" 
         data-width="100px" 
