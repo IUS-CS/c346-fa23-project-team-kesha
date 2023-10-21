@@ -15,7 +15,7 @@ var app = express();
 app.use(express.static('src'));
 
 // Meta (Facebook) App credentials
-var clientId = 'ENTER CLIENT ID'; // need to replace once we get a client id
+var clientId = 'ENTER ID'; // need to replace once we get a client id
 var clientSecret = 'ENTER SECRET';
 var redirectUri = 'https://localhost:8000/auth/facebook/callback'; // need to replace once we get a url
 
@@ -25,7 +25,7 @@ app.get('/auth/facebook', function (req, res) {
     querystring.stringify({
       client_id: clientId,
       redirect_uri: redirectUri,
-      scope: 'public_profile,email',
+      scope: 'public_profile,email,user_likes',
     });
 
   res.redirect(authUrl);
@@ -62,7 +62,7 @@ app.get('/auth/facebook/callback', function (req, res) {
       var accessToken = tokenData.access_token;
 
       // API request to fetch user data
-      https.get('https://graph.facebook.com/v18.0/me?fields=id,email', {
+      https.get('https://graph.facebook.com/v18.0/me?fields=id,email,birthday', {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
