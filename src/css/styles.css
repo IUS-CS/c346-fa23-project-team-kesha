@@ -1,8 +1,15 @@
+
 body {
-    background-color: red;
+    background-color: grey;
+    text-align: center; /* Center the content in the body */
 }
 h1 {
     color: blue;
     font-family: verdana;
-    font-size: 100%;
+    font-size: 60px; /* Increase the font size for the header */
+}
+button {
+    display: block; /* Make the button a block element for centering */
+    margin: 0 auto; /* Center the button horizontally */
+    margin-top: 30px; /* Add some top margin for spacing */
 }

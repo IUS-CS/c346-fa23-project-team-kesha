@@ -1,5 +1,6 @@
 var fs = require('fs'),
     http = require('http'),
+    path = require('path'),
     https = require('https'),
     express = require('express'),
     querystring = require('querystring'),
@@ -10,13 +11,16 @@ var options = {
    cert: fs.readFileSync('src/SSL/cert.pem'),
 };
 
+// Static Files for Homepage
 var app = express();
-
 app.use(express.static('src'));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../html/index.html'))
+});
 
 // Meta (Facebook) App credentials
-var clientId = '324016296801665'; // need to replace once we get a client id
-var clientSecret = '01a41b3a43ea94ae90179d14cbb40776';
+var clientId = 'ID'; // need to replace once we get a client id
+var clientSecret = 'SECRET';
 var redirectUri = 'https://localhost:8000/auth/facebook/callback'; // need to replace once we get a url
 
 // Endpoint to initiate OAuth
@@ -25,7 +29,7 @@ app.get('/auth/facebook', function (req, res) {
     querystring.stringify({
       client_id: clientId,
       redirect_uri: redirectUri,
-      scope: 'public_profile,email',
+      scope: 'public_profile,email,user_likes',
     });
 
   res.redirect(authUrl);
@@ -89,7 +93,7 @@ app.get('/auth/facebook/callback', function (req, res) {
 
 // Define a route for /profile
 app.get('/profile', function (req, res) {
-  res.send('This is the user profile page.');
+  res.sendFile(path.join(__dirname, '../html/homepage.html'))
 });
 
 var server = https.createServer(options, app).listen(port, function () {
