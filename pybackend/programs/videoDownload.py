@@ -12,7 +12,7 @@ def Download(link, name):
     mp3_file_path = destination + "/" + mp3_name
     if os.path.exists(mp3_file_path):
         print("File already exists")
-        return "N/A"
+        return mp3_name
     else:
         youtubeObject = YouTube(link)
         youtubeObject = youtubeObject.streams.get_highest_resolution()
@@ -23,7 +23,7 @@ def Download(link, name):
             dest = shutil.move(mp3_name, destination)
             os.remove(source)
             print("Download Complete")
-            return mp3_file_path
+            return mp3_name
         except:
             print("An error has occurred")
 
