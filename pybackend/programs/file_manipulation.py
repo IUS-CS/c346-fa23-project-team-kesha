@@ -5,10 +5,10 @@ import subprocess
 
 audio_folder = "pybackend/MP3-Files"
 
-def create_new_playlist(playlist_name):
-    if not os.path.exists(audio_folder + "/" + f"{playlist_name}"):
+def create_new_playlist(path, playlist_name):
+    if not os.path.exists(path + "/" + f"{playlist_name}"):
         try:
-            os.makedirs(audio_folder + "/" + f"{playlist_name}")
+            os.makedirs(path + "/" + f"{playlist_name}")
             print("Playlist Created")
         except:
             print("Playlist could not be created")
@@ -16,10 +16,10 @@ def create_new_playlist(playlist_name):
         print("Playlist already exists")
 
 
-def remove_playlist(playlist_name):
-    if os.path.exists(audio_folder + "/" + f"{playlist_name}"):
+def remove_playlist(path, playlist_name):
+    if os.path.exists(path + "/" + f"{playlist_name}"):
         try:
-            shutil.rmtree(audio_folder + "/" + f"{playlist_name}")
+            shutil.rmtree(path + "/" + f"{playlist_name}")
             print("Playlist Deleted")
         except:
             print("Playlist could not be deleted")
@@ -28,9 +28,9 @@ def remove_playlist(playlist_name):
 
 
 
-def Download(link, name):
+def Download(link, name, path):
     mp3_name = name + '.mp3'
-    mp3_file_path = audio_folder + "/" + mp3_name
+    mp3_file_path = path + "/" + mp3_name
     if os.path.exists(mp3_file_path):
         print("File already exists")
         return mp3_name
@@ -41,7 +41,7 @@ def Download(link, name):
             source = youtubeObject.download()
             head, tail = os.path.split(f"{source}")
             subprocess.run(['ffmpeg -i "' + f"{tail}" +'" ' + mp3_name], shell=True)
-            dest = shutil.move(mp3_name, audio_folder)
+            dest = shutil.move(mp3_name, path)
             os.remove(source)
             print("Download Complete")
             return mp3_name
@@ -74,4 +74,4 @@ def show_playlists():
 
     print(dir_list)
 
-Download("https://youtu.be/5yIbZVOv438?si=yFjlD0qNSY2HKhRT", "Earth")
+Download("https://youtu.be/5yIbZVOv438?si=yFjlD0qNSY2HKhRT", "Earth", "/Users/noahtrejo/MP3-FIles")
