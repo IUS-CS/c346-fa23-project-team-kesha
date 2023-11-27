@@ -5,7 +5,7 @@ from tkinter import *
 import pygame
 from file_manipulation import Download, create_new_playlist, remove_playlist, show_songs, show_playlists
 
-audio_folder = "pybackend/MP3-Files"
+audio_folder = os.path.dirname(os.path.abspath(__file__))
 root = Tk()
 root.title('Team Kesha Youtube Audio Player')
 root.geometry("800x600")
@@ -14,18 +14,25 @@ pygame.mixer.init()  # initialize the pygame
 
 # Play Function
 def play():
+    show_pause_unpause_button()
     song_name = txt1.get(1.0, "end-1c")
     playlist = txt2.get(1.0, "end-1c")
-    pygame.mixer.music.load(audio_folder + "/" + f"{playlist}" + "/" + f"{song_name}" + ".mp3")
+    pygame.mixer.music.load(audio_folder + "" + f"{playlist}" + "" + f"{song_name}" + ".mp3")
     pygame.mixer.music.play(loops=0)
 
+
 # Pause Function
-def pause():
-    pygame.mixer.music.pause()
+def pause_unpause():
+    if pygame.mixer.music.get_busy():
+        pause_unpause_button['text'] = "⏸️"
+        pygame.mixer.music.pause()
+    else:
+        pause_unpause_button['text'] = "▶️"
+        pygame.mixer.music.play(loops=0)
 
 # Unpause Function
-def unpause():
-    pygame.mixer.music.unpause()
+# def unpause():
+#     pygame.mixer.music.unpause()
 
 # Download Function - downloads into audio_folder initially
 def download():
@@ -79,28 +86,27 @@ def show_play_button():
     play_button.pack(pady=10)
     # End Play
 
-def show_pause_button():
+def show_pause_unpause_button():
     # Pause Button
     # Need to add a statement to only show pause when music is playing
 
-    pause_button.pack(pady=10)
+    pause_unpause_button.pack(pady=10)
     # End Pause Button
 
-def show_unpause_button():
-
-    # Unpause Button
-    # Need to add a statement to only show pause when music is paused
-    unpause_button.pack(pady=10)
-    # End Unpause Button
+# def show_unpause_button():
+#     # Unpause Button
+#     # Need to add a statement to only show pause when music is paused
+#     unpause_button.pack(pady=10)
+#     # End Unpause Button
 
 
 
 def show_music_buttons():
-    show_pause_button()
-    show_unpause_button()
+    show_pause_unpause_button()
+    # show_unpause_button()
 def remove_music_buttons():
-    pause_button.pack_forget()
-    unpause_button.pack_forget()
+    pause_unpause_button.pack_forget()
+    # unpause_button.pack_forget()
 
 
 
@@ -110,12 +116,11 @@ def remove_music_buttons():
 # FUNCTION TO ADD SONG TO PLAYLIST FROM MP3 FILES IF SONG EXISTS THERE
 download_button = Button(root, text="Download Song", font=("Courier New", 32), command=download)
 play_button = Button(root, text="Play Song", font=("Courier New", 32), command=play)
-pause_button = Button(root, text="Pause", font=("Courier New", 32), command=pause)
-unpause_button = Button(root, text="Unpause", font=("Courier New", 32), command=unpause)
+pause_unpause_button = Button(root, text="⏸️", font=("Courier New", 32), command=pause_unpause)
+# unpause_button = Button(root, text="Unpause", font=("Courier New", 32), command=unpause)
 
 show_download_button()
 show_play_button()
-
 
 
 root.mainloop()
