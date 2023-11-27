@@ -28,9 +28,9 @@ def remove_playlist(playlist_name):
 
 
 
-def Download(link, name, playlist):
+def Download(link, name):
     mp3_name = name + '.mp3'
-    mp3_file_path = audio_folder + "/" + f"{playlist}" + mp3_name
+    mp3_file_path = audio_folder + "/" + mp3_name
     if os.path.exists(mp3_file_path):
         print("File already exists")
         return mp3_name
@@ -41,7 +41,7 @@ def Download(link, name, playlist):
             source = youtubeObject.download()
             head, tail = os.path.split(f"{source}")
             subprocess.run(['ffmpeg -i "' + f"{tail}" +'" ' + mp3_name], shell=True)
-            dest = shutil.move(mp3_name, audio_folder + "/" + f"{playlist}")
+            dest = shutil.move(mp3_name, audio_folder)
             os.remove(source)
             print("Download Complete")
             return mp3_name
@@ -73,3 +73,5 @@ def show_playlists():
         x += 1
 
     print(dir_list)
+
+Download("https://youtu.be/5yIbZVOv438?si=yFjlD0qNSY2HKhRT", "Earth")
