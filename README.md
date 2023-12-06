@@ -28,6 +28,10 @@ Pygame library
 
 Tkinter library
 
+PyTube library
+
+FFMpeg library
+
 ## Installation
 
 1. Download the project
@@ -35,9 +39,15 @@ Tkinter library
 3. Open a terminal and navigate to the project folder<br>
     <code>$ cd (project directory)</code>
 5. Install pygame by running the below<br>
-   <code>$ pip install pygame</code>
+   <code>$ python -m pip install pygame</code>
 6. Install tkinter by running the below<br>
-   <code>$ pip install tk</code>
+   <code>$ python -m pip install tk</code>
+7. Install FFMpeg by running the below<br>
+    <code>$ python -m pip install ffmpeg</code> (Recommend running with brew <code>$ brew install ffmpeg</code>)
+8. Install PyTube by running the below<br>
+    <code>$ python -m pip install pytube</code>
+
+   (If pip is outdated, install from the source: <code>$ python -m pip install git+https://github.com/pytube/pytube</code>)
 
 ## Running the application
 
