@@ -51,7 +51,7 @@ def Download(link, name, path):
 
 # List the songs
 def show_songs(playlist):
-    dir_list = os.listdir(audio_folder + playlist + "/")
+    dir_list = os.listdir(audio_folder + playlist )
 
     x = 0
 
@@ -74,4 +74,3 @@ def show_playlists():
 
     print(dir_list)
 
-Download("https://youtu.be/5yIbZVOv438?si=yFjlD0qNSY2HKhRT", "Earth", "/Users/noahtrejo/MP3-FIles")
