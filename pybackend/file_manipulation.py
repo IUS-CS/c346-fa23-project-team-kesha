@@ -50,8 +50,8 @@ def Download(link, name, path):
 
 
 # List the songs
-def show_songs(playlist):
-    dir_list = os.listdir(audio_folder + playlist )
+def show_songs(path, playlist):
+    dir_list = os.listdir(path + playlist + "/")
 
     x = 0
 
@@ -62,8 +62,8 @@ def show_songs(playlist):
 
     print(dir_list)
 
-def show_playlists():
-    dir_list = os.listdir(audio_folder + "/")
+def show_playlists(path):
+    dir_list = os.listdir(path + "/")
 
     x = 0
 
@@ -73,4 +73,3 @@ def show_playlists():
         x += 1
 
     print(dir_list)
-
