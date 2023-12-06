@@ -50,8 +50,8 @@ def Download(link, name, path):
 
 
 # List the songs
-def show_songs(playlist):
-    dir_list = os.listdir(audio_folder + playlist + "/")
+def show_songs(path, playlist):
+    dir_list = os.listdir(path + playlist + "/")
 
     x = 0
 
@@ -62,8 +62,8 @@ def show_songs(playlist):
 
     print(dir_list)
 
-def show_playlists():
-    dir_list = os.listdir(audio_folder + "/")
+def show_playlists(path):
+    dir_list = os.listdir(path + "/")
 
     x = 0
 
@@ -74,4 +74,9 @@ def show_playlists():
 
     print(dir_list)
 
-Download("https://youtu.be/5yIbZVOv438?si=yFjlD0qNSY2HKhRT", "Earth", "/Users/noahtrejo/MP3-FIles")
+# create_new_playlist("/Users/noahtrejo", "MP3-Files")
+
+# Download("https://youtu.be/5yIbZVOv438?si=yFjlD0qNSY2HKhRT", "Earth", "/Users/noahtrejo/MP3-FIles")
+# Download("https://youtu.be/Q2-WKpaHsdM?si=4ySh2WV5kVaWpflE", "Secrets", "/Users/noahtrejo/MP3-FIles")
+
+# remove_playlist("/Users/noahtrejo", "MP3-Files")
