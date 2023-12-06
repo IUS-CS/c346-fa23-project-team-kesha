@@ -26,11 +26,13 @@ def insert_song(file_path):
 
 
 
-name = input("Enter the name of your song: ")
-link = input("Enter the YouTube video URL: ")
-path = Download(link, name)
-if path == "N/A":
+# name = input("Enter the name of your song: ")
+# link = input("Enter the YouTube video URL: ")
+# song_path = input("Enter Path")
+song_path = "/Users/noahtrejo/MP3-FIles"
+song = Download("https://youtu.be/5yIbZVOv438?si=yFjlD0qNSY2HKhRT", "Earth", "/Users/noahtrejo/MP3-FIles")
+if song == "N/A":
     print("Song already in playlist")
 else:
-    insert_song(path)
+    insert_song(song_path + "/" + song)
     print("File downloaded and stored in playlists")
