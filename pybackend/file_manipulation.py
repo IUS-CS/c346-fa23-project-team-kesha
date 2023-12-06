@@ -73,9 +73,3 @@ def show_playlists(path):
         x += 1
 
     print(dir_list)
-# create_new_playlist("/Users/noahtrejo", "MP3-Files")
-
-# Download("https://youtu.be/5yIbZVOv438?si=yFjlD0qNSY2HKhRT", "Earth", "/Users/noahtrejo/MP3-FIles")
-# Download("https://youtu.be/Q2-WKpaHsdM?si=4ySh2WV5kVaWpflE", "Secrets", "/Users/noahtrejo/MP3-FIles")
-
-# remove_playlist("/Users/noahtrejo", "MP3-Files")
